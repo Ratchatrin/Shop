@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { userAddCart } from "../redux/slicer";
 import { useNavigate } from "react-router-dom";
 interface wearType {
-  _id: string;
+  readonly _id: string;
   brand: string;
   productname: string;
   description: string;
-  color: [string];
+  color: string[];
   image: {
-    color: string;
-    common: [string];
+    color: { [color: string]: string[] };
+    common: string[];
   };
-  size: object;
-  overview: [string];
+  size: { [size: string]: unknown };
+  overview: string[];
   materials: {
     FABRICDETAILS: string;
   };
@@ -27,7 +27,13 @@ interface state {
     loading: boolean;
   };
 }
-function DetailKidsPants({ productId, backBtn }) {
+function DetailKidsPants({
+  productId,
+  backBtn,
+}: {
+  productId: string;
+  backBtn: React.FunctionComponent<unknown>;
+}) {
   const [detail, setDetail] = useState<wearType[]>([]);
   const [pantsSize, setPantsSize] = useState<string[]>([]);
   const [selectColor, setSelectColor] = useState("");
@@ -104,7 +110,7 @@ function DetailKidsPants({ productId, backBtn }) {
                           <img
                             src={image}
                             alt=""
-                            className="w-44 m-2 rounded-xl "
+                            className="w-36 m-2 rounded-xl "
                           />
                         </>
                       );
@@ -115,7 +121,7 @@ function DetailKidsPants({ productId, backBtn }) {
                     <img
                       src={shirt.image.color[selectColor]}
                       alt=""
-                      className="w-44 m-2 rounded-xl "
+                      className="w-36 m-2 rounded-xl "
                     />
                     {shirt.image.common.map((image: string) => {
                       return (
@@ -123,7 +129,7 @@ function DetailKidsPants({ productId, backBtn }) {
                           <img
                             src={image}
                             alt=""
-                            className="w-44 m-2 rounded-xl"
+                            className="w-36 m-2 rounded-xl"
                           />
                         </>
                       );

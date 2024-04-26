@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { userAddCart } from "../redux/slicer";
 import { useNavigate } from "react-router-dom";
 interface wearType {
-  _id: string;
+  readonly _id: string;
   brand: string;
   productname: string;
   description: string;
-  color: [string];
+  color: string[];
   image: {
-    color: [string];
-    common: [string];
+    color: { [color: string]: string[] };
+    common: string[];
   };
-  size: object;
-  overview: [string];
+  size: { [size: string]: unknown };
+  overview: string[];
   materials: {
     FABRICDETAILS: string;
   };
@@ -27,7 +27,20 @@ interface state {
     loading: boolean;
   };
 }
-function DetailMenPants({ productId, backBtn }) {
+interface state {
+  user: {
+    userData: { _id: string };
+    error: boolean;
+    loading: boolean;
+  };
+}
+function DetailMenPants({
+  productId,
+  backBtn,
+}: {
+  productId: string;
+  backBtn: React.FunctionComponent<unknown>;
+}) {
   const [detail, setDetail] = useState<wearType[]>([]);
   const [pantsSize, setPantsSize] = useState<string[]>([]);
   const [selectColor, setSelectColor] = useState(String);

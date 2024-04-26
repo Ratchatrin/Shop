@@ -6,7 +6,7 @@ import WomenWear from "./component/redux/main/WomenWear.tsx";
 import KidsWear from "./component/redux/main/KidsWear.tsx";
 import About from "./component/header/About.tsx";
 import Contact from "./component/header/Contact.tsx";
-import Detail from "./component/detail/DetailMenShirt.tsx";
+import Detail from "./component/detail/DetailMenShirt.jsx";
 import Login from "./component/header/Login.tsx";
 import Signin from "./component/header/Signin.tsx";
 

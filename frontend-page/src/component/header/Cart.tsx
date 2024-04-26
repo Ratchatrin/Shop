@@ -7,15 +7,23 @@ import { userAddCart, userDelete } from "../redux/slicer";
 import axios from "axios";
 import Footer from "../footer/Footer";
 import NavLogin from "./NarLogin";
+
+interface state {
+  user: {
+    userData: { _id: string };
+    error: boolean;
+    loading: boolean;
+  };
+}
 interface wearType {
   id: string;
   brand: string;
   productname: string;
   description: string;
-  color: [string];
+  color: string;
   image: string;
   size: string;
-  overview: [string];
+  overview: string[];
   materials: {
     FABRICDETAILS: string;
   };
@@ -23,9 +31,9 @@ interface wearType {
   amount: number;
 }
 function Cart() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<wearType[]>([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const userData = useSelector((state) => state.user.userData);
+  const userData = useSelector((state: state) => state.user.userData);
   const dispatch = useDispatch();
   const updateWindowWidth = () => {
     setWindowWidth(window.innerWidth);
@@ -36,17 +44,14 @@ function Cart() {
   const finalTotal = total.reduce((acc, cur) => {
     return acc + cur;
   }, 0);
-  const deleteCart = async (product) => {
-    const deleteProcuct = await axios.put(
+  const deleteCart = async (product: wearType) => {
+    await axios.put(
       `http://localhost:3001/cart/delete/${userData._id}`,
       product
     );
   };
-  const addCart = async (product) => {
-    const addProduct = await axios.put(
-      `http://localhost:3001/cart/add/${userData._id}`,
-      product
-    );
+  const addCart = async (product: wearType) => {
+    await axios.put(`http://localhost:3001/cart/add/${userData._id}`, product);
   };
 
   useEffect(() => {
