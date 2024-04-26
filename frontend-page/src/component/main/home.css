@@ -1,0 +1,77 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+  padding: 10px;
+  text-wrap: balance;
+  width: 200px;
+  text-align: center;
+  font-weight: 600;
+  font-family: Kanit;
+}
+.man_category {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://im.uniqlo.com/global-cms/spa/res74e226c8cbba865dba392095904beac1fr.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 400px;
+  height: 400px;
+}
+.woman_category {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://im.uniqlo.com/global-cms/spa/resa69deaf9b2db418856e364aed00df204fr.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 400px;
+  height: 400px;
+  color: #eeeeee;
+}
+.kids_category {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://im.uniqlo.com/global-cms/spa/res3d7212e92e90d0060a3e24b40ad25d21fr.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 400px;
+  height: 400px;
+  color: #eeeeee;
+}
+@media screen and (min-width: 1024px) {
+  .man_category,
+  .kids_category,
+  .woman_category {
+    width: 700px;
+    height: 500px;
+  }
+  .card {
+    width: 500px;
+  }
+}

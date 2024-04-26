@@ -1,0 +1,39 @@
+.header img {
+  width: 300px;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navigator {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.navigator a {
+  margin-left: 10px;
+  margin-top: 5px;
+  text-decoration: none;
+  color: black;
+}
+@media screen and (min-width: 1024px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-top: 20px;
+  }
+  .navigator {
+    font-size: 25px;
+  }
+  .header img {
+    width: 450px;
+  }
+}
