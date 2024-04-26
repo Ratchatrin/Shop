@@ -1,15 +1,14 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import Nav from "../header/Nav";
-import NavShort from "../header/NavShort";
-import Footer from "../footer/Footer";
-import DetailMenShirt from "../detail/DetailMenShirt";
-import DetailMenPants from "../detail/DetailMenPants";
+import { useState, useEffect } from "react";
+import Nav from "../../header/Nav";
+import NavShort from "../../header/NavShort";
+import Footer from "../../footer/Footer";
+import DetailKidsShirt from "../../detail/DetailKidsShirt";
+import DetailKidsPants from "../../detail/DetailKidsPants";
 import { useSelector } from "react-redux";
-import NavShortLogin from "../header/NavShortLogin";
-import NavLogin from "../header/NarLogin";
-import "./home.css";
-import MenWearXl from "./MenWearXl";
+import NavShortLogin from "../../header/NavShortLogin";
+import NavLogin from "../../header/NarLogin";
+import KidsWearXl from "./KidsWearXl";
 interface wearType {
   _id: string;
   brand: string;
@@ -34,9 +33,9 @@ interface state {
     loading: boolean;
   };
 }
-function MenWear() {
-  const [menShirt, setMenShirt] = useState([]);
-  const [menPants, setMenPants] = useState([]);
+function KidsWear() {
+  const [kidsShirt, setKidsShirt] = useState([]);
+  const [kidsPants, setKidsPants] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [productId, setProductId] = useState(String);
   const [selectWear, setSelectWear] = useState(String);
@@ -46,15 +45,15 @@ function MenWear() {
     setCartData(userData);
   }, [userData]);
   const getData = async () => {
-    const data = await axios.get("http://localhost:3001/product/men");
-    setMenShirt(data.data[0]);
-    setMenPants(data.data[1]);
-  };
-  const updateWindowWidth = () => {
-    setWindowWidth(window.innerWidth);
+    const data = await axios.get("http://localhost:3001/product/kids");
+    setKidsShirt(data.data[0]);
+    setKidsPants(data.data[1]);
   };
   const backSelect = (back: string) => {
     setProductId(back);
+  };
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
   };
   window.addEventListener("resize", updateWindowWidth);
   useEffect(() => {
@@ -92,17 +91,17 @@ function MenWear() {
           <>
             {selectWear === "shirt" ? (
               <>
-                <DetailMenShirt
-                  backBtn={backSelect}
+                <DetailKidsShirt
                   productId={productId}
-                ></DetailMenShirt>
+                  backBtn={backSelect}
+                ></DetailKidsShirt>
               </>
             ) : (
               <>
-                <DetailMenPants
-                  backBtn={backSelect}
+                <DetailKidsPants
                   productId={productId}
-                ></DetailMenPants>
+                  backBtn={backSelect}
+                ></DetailKidsPants>
               </>
             )}
           </>
@@ -110,7 +109,7 @@ function MenWear() {
           <>
             {windowWidth > 1024 ? (
               <>
-                <MenWearXl></MenWearXl>
+                <KidsWearXl></KidsWearXl>
               </>
             ) : (
               <>
@@ -119,7 +118,7 @@ function MenWear() {
                     Men T-Shirt
                   </p>
 
-                  {menShirt.map((shirt: wearType) => {
+                  {kidsShirt.map((shirt: wearType) => {
                     return (
                       <div className="flex flex-col m-5 justify-center items-center ">
                         <img src={shirt.image.common[1]} alt="" />
@@ -142,7 +141,7 @@ function MenWear() {
                   <p className=" font-bold underline text-3xl text-black">
                     Men Pants
                   </p>
-                  {menPants.map((pants: wearType) => {
+                  {kidsPants.map((pants: wearType) => {
                     return (
                       <div className="flex flex-col m-5 justify-center items-center ">
                         <img src={pants.image.common[1]} alt="" />
@@ -171,4 +170,4 @@ function MenWear() {
   );
 }
 
-export default MenWear;
+export default KidsWear;

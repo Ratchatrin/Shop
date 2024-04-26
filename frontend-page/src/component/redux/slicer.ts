@@ -27,7 +27,7 @@ const slicer = createSlice({
     userAddCart: (state, action) => {
       const newItem = action.payload;
       const existingItemIndex = state.userData.cart.findIndex(
-        (item) =>
+        (item: { color: string; size: string; id: string; }) =>
           item.color === newItem.color &&
           item.size === newItem.size &&
           item.id === newItem.id
@@ -41,7 +41,7 @@ const slicer = createSlice({
     userDelete: (state, action) => {
       const newItem = action.payload;
       const existingItemIndex = state.userData.cart.findIndex(
-        (item) =>
+        (item: { color: string; size: string; id: string; }) =>
           item.color === newItem.color &&
           item.size === newItem.size &&
           item.id === newItem.id

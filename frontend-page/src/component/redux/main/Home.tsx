@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./home.css";
-import Nav from "../header/Nav";
-import NavShort from "../header/NavShort";
-import Footer from "../footer/Footer";
+import Nav from "../../header/Nav";
+import NavShort from "../../header/NavShort";
+import Footer from "../../footer/Footer";
 import "./index.css";
 import { useSelector } from "react-redux";
-import NavShortLogin from "../header/NavShortLogin";
-import NavLogin from "../header/NarLogin";
+import NavShortLogin from "../../header/NavShortLogin";
+import NavLogin from "../../header/NarLogin";
 import HomeXl from "./HomeXl";
 interface wearType {
   _id: string;

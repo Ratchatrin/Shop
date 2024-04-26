@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./home.css";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
 import "./index.css";
 interface wearType {
   _id: string;

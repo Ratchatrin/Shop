@@ -1,8 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import "./home.css";
-import DetailMenShirtXl from "../detail/DetailMenShirtXl";
-import DetailMenPantsXl from "../detail/DetailMenPantsXl";
+import { useState, useEffect } from "react";
+import DetailKidsPantsXl from "../../detail/DetailKidsPantsXl";
+import DetailKidsShirtXl from "../../detail/DetailKidsShirtXl";
 interface wearType {
   _id: string;
   brand: string;
@@ -21,15 +20,15 @@ interface wearType {
   price: number;
 }
 
-function MenWearXl() {
-  const [menShirt, setMenShirt] = useState([]);
-  const [menPants, setMenPants] = useState([]);
+function KidsWearXl() {
+  const [kidsShirt, setKidsShirt] = useState<wearType[]>([]);
+  const [kidsPants, setKidsPants] = useState<wearType[]>([]);
   const [productId, setProductId] = useState(String);
   const [selectWear, setSelectWear] = useState(String);
   const getData = async () => {
-    const data = await axios.get("http://localhost:3001/product/men");
-    setMenShirt(data.data[0]);
-    setMenPants(data.data[1]);
+    const data = await axios.get("http://localhost:3001/product/kids");
+    setKidsShirt(data.data[0]);
+    setKidsPants(data.data[1]);
   };
   const backSelect = (back: string) => {
     setProductId(back);
@@ -44,29 +43,26 @@ function MenWearXl() {
           <>
             {selectWear === "shirt" ? (
               <>
-                <DetailMenShirtXl
-                  productId={productId}
-                  backBtn={backSelect}
-                ></DetailMenShirtXl>
+                <DetailKidsShirtXl productId={productId} backBtn={backSelect} />
               </>
             ) : (
               <>
-                <DetailMenPantsXl
-                  backBtn={backSelect}
+                <DetailKidsPantsXl
                   productId={productId}
-                ></DetailMenPantsXl>
+                  backBtn={backSelect}
+                ></DetailKidsPantsXl>
               </>
             )}
           </>
         ) : (
           <>
             <div className="text-center grid grid-cols-3 items-stretch item">
-              <div className="flex items-center justify-center bg-[url('https://im.uniqlo.com/global-cms/spa/res72658c23751af1cb313fb8ad02c69db9fr.jpg')] h-full bg-cover">
+              <div className="flex items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/468929/item/thgoods_42_468929.jpg?width=750')] h-full bg-cover">
                 <p className=" font-bold underline text-3xl text-black">
-                  Men T-Shirt
+                  Kids T-Shirt
                 </p>
               </div>
-              {menShirt.map((shirt: wearType) => {
+              {kidsShirt.map((shirt: wearType) => {
                 return (
                   <div className="flex flex-col m-5 justify-center items-center ">
                     <img src={shirt.image.common[1]} alt="" />
@@ -86,13 +82,13 @@ function MenWearXl() {
               })}
             </div>
             <div className="text-center grid grid-cols-3 items-center">
-              <div className="flex items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/471600/item/thgoods_08_471600.jpg?width=750')] h-full bg-cover">
+              <div className="flex items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/468793/sub/thgoods_468793_sub9.jpg?width=750')] h-full bg-cover">
                 <p className=" font-bold underline text-3xl text-black">
-                  Men Pants
+                  Kids Pants
                 </p>
               </div>
 
-              {menPants.map((pants: wearType) => {
+              {kidsPants.map((pants: wearType) => {
                 return (
                   <div className="flex flex-col m-5 justify-center items-center ">
                     <img src={pants.image.common[1]} alt="" />
@@ -118,4 +114,4 @@ function MenWearXl() {
   );
 }
 
-export default MenWearXl;
+export default KidsWearXl;

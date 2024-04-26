@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./home.css";
-import DetailWomenShirtXl from "../detail/DetailWomenShirtXl";
-import DetailWomenPantsXl from "../detail/DetailWomenPantsXl";
+import DetailWomenShirtXl from "../../detail/DetailWomenShirtXl";
+import DetailWomenPantsXl from "../../detail/DetailWomenPantsXl";
 interface wearType {
   _id: string;
   brand: string;
