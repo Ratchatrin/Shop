@@ -32,12 +32,13 @@ function DetailKidsShirt({
   backBtn,
 }: {
   productId: string;
-  backBtn: React.FunctionComponent<unknown>;
+  backBtn: React.FunctionComponent<string>;
 }) {
   const [detail, setDetail] = useState<wearType[]>([]);
   const [shirtSize, setShirtSize] = useState<string[]>([]);
   const [selectColor, setSelectColor] = useState(String);
   const [selectSize, setSelectSize] = useState(String);
+  const [addComplete, setAddComplete] = useState(false);
   const [amount, setAmount] = useState(1);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -73,6 +74,10 @@ function DetailKidsShirt({
               amount: amount,
             };
           });
+          setAddComplete(true);
+          setTimeout(() => {
+            setAddComplete(false);
+          }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
             `http://localhost:3001/cart/add/${userData._id}`,
@@ -222,12 +227,35 @@ function DetailKidsShirt({
                     -
                   </button>
                 </div>
+                <p>Total : {amount * shirt.price}</p>
                 <button
                   className="btn btn-active btn-accent mt-2"
                   onClick={addCart}
                 >
                   Add To Cart
                 </button>
+                {addComplete ? (
+                  <>
+                    <div role="alert" className="alert alert-success mt-10">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="stroke-current shrink-0 h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Your purchase has been confirmed!</span>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
               </div>
             );
           })}

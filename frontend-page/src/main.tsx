@@ -1,14 +1,14 @@
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MenWear from "./component/redux/main/MenWear.tsx";
-import WomenWear from "./component/redux/main/WomenWear.tsx";
-import KidsWear from "./component/redux/main/KidsWear.tsx";
+import MenWear from "./component/main/MenWear.tsx";
+import WomenWear from "./component/main/WomenWear.tsx";
+import KidsWear from "./component/main/KidsWear.tsx";
 import About from "./component/header/About.tsx";
 import Contact from "./component/header/Contact.tsx";
 import Detail from "./component/detail/DetailMenShirt.jsx";
 import Login from "./component/header/Login.tsx";
 import Signin from "./component/header/Signin.tsx";
-import Home from "./component/redux/main/Home.tsx";
+import Home from "./component/main/Home.tsx";
 import Welcome from "./component/header/Welcome.tsx";
 import { Provider } from "react-redux";
 import Store from "./component/redux/store.js";

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./home.css";
-import Footer from "../../footer/Footer";
+import Footer from "../footer/Footer";
 import "./index.css";
 interface wearType {
   _id: string;
@@ -49,7 +49,7 @@ function HomeXl() {
       <div className="container">
         {menShirt.length !== 0 ? (
           <>
-            <div
+            {/* <div
               className="w-full flex justify-around
             "
             >
@@ -358,31 +358,49 @@ function HomeXl() {
                   </div>
                 </div>
               </Link>
+            </div> */}
+            <div
+              className="hero min-h-screen bg-base-200 bg-[url('https://im.uniqlo.com/global-cms/spa/resba702f326ece6e072306fef710aba841fr.jpg')] h-1/5 w-full bg-top bg-cover
+                 bg-no-repeat"
+            >
+              <div className="hero-content text-center ">
+                <div className="w-full">
+                  <h1 className="text-6xl font-bold text-gray-50 ">
+                    Welcome To The Brand Shop
+                  </h1>
+                  <p className="py-6"></p>
+                </div>
+              </div>
             </div>
+            <p className="text-4xl font-bold m-2 uppercase underline">
+              Collection
+            </p>
+            <div className="flex w-8/12">
+              <div className="man_category w-8/12 ">
+                <p className="text-xl font-bold m-2 uppercase ">
+                  Men Collection
+                </p>
+                <button className="btn btn-outline text-white">
+                  <Link to="/product/men">Shop Collection</Link>
+                </button>
+              </div>
+              <div className="woman_category w-8/12 ">
+                <p className="text-xl font-bold m-2 uppercase ">
+                  Women Collection
+                </p>
 
-            <br />
-            <div className="man_category">
-              <p className="text-xl font-bold m-2 uppercase ">Men Collection</p>
-              <button className="btn btn-outline">
-                <Link to="/product/men">Shop Collection</Link>
-              </button>
-            </div>
-            <div className="woman_category">
-              <p className="text-xl font-bold m-2 uppercase ">
-                Women Collection
-              </p>
-
-              <button className="btn btn-outline text-white">
-                <Link to="/product/women">Shop Collection</Link>
-              </button>
-            </div>
-            <div className="kids_category">
-              <p className="text-xl font-bold m-2 uppercase ">
-                Kids Collection
-              </p>
-              <button className="btn btn-outline text-white">
-                <Link to="/product/kids">Shop Collection</Link>
-              </button>
+                <button className="btn btn-outline text-white">
+                  <Link to="/product/women">Shop Collection</Link>
+                </button>
+              </div>
+              <div className="kids_category w-8/12">
+                <p className="text-xl font-bold m-2 uppercase ">
+                  Kids Collection
+                </p>
+                <button className="btn btn-outline text-white">
+                  <Link to="/product/kids">Shop Collection</Link>
+                </button>
+              </div>
             </div>
           </>
         ) : (

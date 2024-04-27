@@ -39,6 +39,7 @@ function DetailKidsPantsXl({
   const [selectColor, setSelectColor] = useState(String);
   const [selectSize, setSelectSize] = useState(String);
   const [amount, setAmount] = useState(1);
+  const [addComplete, setAddComplete] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state: state) => state.user.userData);
@@ -70,6 +71,10 @@ function DetailKidsPantsXl({
               amount: amount,
             };
           });
+          setAddComplete(true);
+          setTimeout(() => {
+            setAddComplete(false);
+          }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
             `http://localhost:3001/cart/add/${userData._id}`,
@@ -228,9 +233,9 @@ function DetailKidsPantsXl({
                 >
                   Add To Cart
                 </button>
-                {/* {addComplete ? (
+                {addComplete ? (
                   <>
-                    <div role="alert" className="alert alert-success">
+                    <div role="alert" className="alert alert-success mt-10">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="stroke-current shrink-0 h-6 w-6"
@@ -249,7 +254,7 @@ function DetailKidsPantsXl({
                   </>
                 ) : (
                   <></>
-                )} */}
+                )}
               </div>
             );
           })}

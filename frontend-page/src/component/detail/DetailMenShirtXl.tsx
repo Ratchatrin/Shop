@@ -72,6 +72,10 @@ function DetailMenShirtXl({
               amount: amount,
             };
           });
+          setAddComplete(true);
+          setTimeout(() => {
+            setAddComplete(false);
+          }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
             `http://localhost:3001/cart/add/${userData._id}`,
@@ -236,7 +240,7 @@ function DetailMenShirtXl({
                 </button>
                 {addComplete ? (
                   <>
-                    <div role="alert" className="alert alert-success">
+                    <div role="alert" className="alert alert-success mt-10">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="stroke-current shrink-0 h-6 w-6"

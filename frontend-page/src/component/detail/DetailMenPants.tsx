@@ -79,6 +79,10 @@ function DetailMenPants({
               amount: amount,
             };
           });
+          setAddComplete(true);
+          setTimeout(() => {
+            setAddComplete(false);
+          }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
             `http://localhost:3001/cart/add/${userData._id}`,
@@ -113,12 +117,12 @@ function DetailMenPants({
           >
             Back
           </button>
-          {detail.map((shirt) => {
+          {detail.map((pants) => {
             return (
               <div className="p-2  flex flex-col items-center">
                 {selectColor === "" ? (
                   <div className="grid grid-cols-2 grid-rows-2 w-fit ">
-                    {shirt.image.common.map((image: string) => {
+                    {pants.image.common.map((image: string) => {
                       return (
                         <>
                           <img
@@ -133,11 +137,11 @@ function DetailMenPants({
                 ) : (
                   <div className="grid grid-cols-2 grid-rows-2 ">
                     <img
-                      src={shirt.image.color[selectColor]}
+                      src={pants.image.color[selectColor]}
                       alt=""
                       className="w-44 m-2 rounded-xl "
                     />
-                    {shirt.image.common.map((image: string) => {
+                    {pants.image.common.map((image: string) => {
                       return (
                         <>
                           <img
@@ -151,9 +155,9 @@ function DetailMenPants({
                   </div>
                 )}
 
-                <p className="mt-2">{shirt.productname}</p>
-                <p className="mt-2 w-80">{shirt.description}</p>
-                <p className="mt-2">${shirt.price}</p>
+                <p className="mt-2">{pants.productname}</p>
+                <p className="mt-2 w-80">{pants.description}</p>
+                <p className="mt-2">${pants.price}</p>
                 <select
                   className="select select-bordered w-full max-w-xs mt-2"
                   onChange={(ev) => {
@@ -163,7 +167,7 @@ function DetailMenPants({
                   <option disabled selected>
                     Pick Color
                   </option>
-                  {shirt.color.map((color) => {
+                  {pants.color.map((color) => {
                     return (
                       <>
                         <option>{color}</option>
@@ -194,7 +198,7 @@ function DetailMenPants({
                     Overview
                   </div>
                   <div className="collapse-content">
-                    {shirt.overview.map((data) => {
+                    {pants.overview.map((data) => {
                       return (
                         <>
                           <p>- {data}</p>
@@ -209,7 +213,7 @@ function DetailMenPants({
                     Materials
                   </div>
                   <div className="collapse-content">
-                    <p> {shirt.materials.FABRICDETAILS}</p>
+                    <p> {pants.materials.FABRICDETAILS}</p>
                   </div>
                 </div>
                 <div className="flex justify-stretch items-center mt-2">
@@ -233,6 +237,7 @@ function DetailMenPants({
                     -
                   </button>
                 </div>
+                <p>Total : {amount * pants.price}</p>
                 <button
                   className="btn btn-active btn-accent mt-2"
                   onClick={addCart}
@@ -241,7 +246,7 @@ function DetailMenPants({
                 </button>
                 {addComplete ? (
                   <>
-                    <div role="alert" className="alert alert-success">
+                    <div role="alert" className="alert alert-success mt-10">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="stroke-current shrink-0 h-6 w-6"

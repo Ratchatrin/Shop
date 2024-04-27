@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Nav from "../../header/Nav";
-import NavShort from "../../header/NavShort";
-import Footer from "../../footer/Footer";
-import DetailWomenShirt from "../../detail/DetailWomenShirt";
-import DetailWomenPants from "../../detail/DetailWomenPants";
+import Nav from "../header/Nav";
+import NavShort from "../header/NavShort";
+import Footer from "../footer/Footer";
+import DetailKidsShirt from "../detail/DetailKidsShirt";
+import DetailKidsPants from "../detail/DetailKidsPants";
 import { useSelector } from "react-redux";
-import NavShortLogin from "../../header/NavShortLogin";
-import NavLogin from "../../header/NarLogin";
-import WomenWearXl from "./WomenWearXl";
+import NavShortLogin from "../header/NavShortLogin";
+import NavLogin from "../header/NarLogin";
+import KidsWearXl from "./KidsWearXl";
 interface wearType {
   _id: string;
   brand: string;
@@ -33,9 +33,9 @@ interface state {
     loading: boolean;
   };
 }
-function WomenWear() {
-  const [womenShirt, setWomenShirt] = useState([]);
-  const [womenPants, setWomenPants] = useState([]);
+function KidsWear() {
+  const [kidsShirt, setKidsShirt] = useState([]);
+  const [kidsPants, setKidsPants] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [productId, setProductId] = useState(String);
   const [selectWear, setSelectWear] = useState(String);
@@ -45,16 +45,15 @@ function WomenWear() {
     setCartData(userData);
   }, [userData]);
   const getData = async () => {
-    const data = await axios.get("http://localhost:3001/product/women");
-    setWomenShirt(data.data[0]);
-    setWomenPants(data.data[1]);
-  };
-
-  const updateWindowWidth = () => {
-    setWindowWidth(window.innerWidth);
+    const data = await axios.get("http://localhost:3001/product/kids");
+    setKidsShirt(data.data[0]);
+    setKidsPants(data.data[1]);
   };
   const backSelect = (back: string) => {
     setProductId(back);
+  };
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
   };
   window.addEventListener("resize", updateWindowWidth);
   useEffect(() => {
@@ -92,17 +91,17 @@ function WomenWear() {
           <>
             {selectWear === "shirt" ? (
               <>
-                <DetailWomenShirt
-                  backBtn={backSelect}
+                <DetailKidsShirt
                   productId={productId}
-                ></DetailWomenShirt>
+                  backBtn={backSelect}
+                ></DetailKidsShirt>
               </>
             ) : (
               <>
-                <DetailWomenPants
-                  backBtn={backSelect}
+                <DetailKidsPants
                   productId={productId}
-                ></DetailWomenPants>
+                  backBtn={backSelect}
+                ></DetailKidsPants>
               </>
             )}
           </>
@@ -110,20 +109,18 @@ function WomenWear() {
           <>
             {windowWidth > 1024 ? (
               <>
-                <WomenWearXl></WomenWearXl>
+                <KidsWearXl></KidsWearXl>
               </>
             ) : (
               <>
-                <div className="text-center">
+                <div className="text-center ">
                   <p className=" font-bold underline text-3xl text-black">
-                    Women T-Shirt
+                    Kids T-Shirt
                   </p>
-                  {womenShirt.map((shirt: wearType) => {
+
+                  {kidsShirt.map((shirt: wearType) => {
                     return (
-                      <div
-                        key={shirt._id}
-                        className="flex flex-col m-5 justify-center items-center "
-                      >
+                      <div className="flex flex-col m-5 justify-center items-center ">
                         <img src={shirt.image.common[1]} alt="" />
                         <p className="font-bold">{shirt.productname}</p>
                         <p className="font-bold">Price : ${shirt.price}</p>
@@ -142,18 +139,18 @@ function WomenWear() {
                 </div>
                 <div className="text-center">
                   <p className=" font-bold underline text-3xl text-black">
-                    Women Pants
+                    Kids Pants
                   </p>
-                  {womenPants.map((shirt: wearType) => {
+                  {kidsPants.map((pants: wearType) => {
                     return (
                       <div className="flex flex-col m-5 justify-center items-center ">
-                        <img src={shirt.image.common[1]} alt="" />
-                        <p className="font-bold">{shirt.productname}</p>
-                        <p className="font-bold">Price : ${shirt.price}</p>
+                        <img src={pants.image.common[1]} alt="" />
+                        <p className="font-bold">{pants.productname}</p>
+                        <p className="font-bold">Price : ${pants.price}</p>
                         <button
                           className="btn  btn-info w-40"
                           onClick={() => {
-                            setProductId(shirt._id);
+                            setProductId(pants._id);
                             setSelectWear("pants");
                           }}
                         >
@@ -173,4 +170,4 @@ function WomenWear() {
   );
 }
 
-export default WomenWear;
+export default KidsWear;

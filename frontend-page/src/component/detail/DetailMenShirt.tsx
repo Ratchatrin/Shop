@@ -73,6 +73,10 @@ function Detail({
               amount: amount,
             };
           });
+          setAddComplete(true);
+          setTimeout(() => {
+            setAddComplete(false);
+          }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
             `http://localhost:3001/cart/add/${userData._id}`,
@@ -118,7 +122,7 @@ function Detail({
                           <img
                             src={image}
                             alt=""
-                            className="w-44 m-2 rounded-xl"
+                            className="w-36 m-2 rounded-xl"
                           />
                         </>
                       );
@@ -129,7 +133,7 @@ function Detail({
                     <img
                       src={shirt.image.color[selectColor]}
                       alt=""
-                      className="w-44 m-2 rounded-xl "
+                      className="w-36 m-2 rounded-xl "
                     />
                     {shirt.image.common.map((image: string) => {
                       return (
@@ -137,7 +141,7 @@ function Detail({
                           <img
                             src={image}
                             alt=""
-                            className="w-44 m-2 rounded-xl"
+                            className="w-36 m-2 rounded-xl"
                           />
                         </>
                       );
@@ -227,6 +231,7 @@ function Detail({
                     -
                   </button>
                 </div>
+                <p>Total : {amount * shirt.price}</p>
                 <button
                   className="btn btn-active btn-accent mt-2"
                   onClick={() => {
@@ -237,7 +242,7 @@ function Detail({
                 </button>
                 {addComplete ? (
                   <>
-                    <div role="alert" className="alert alert-success">
+                    <div role="alert" className="alert alert-success mt-10">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="stroke-current shrink-0 h-6 w-6"

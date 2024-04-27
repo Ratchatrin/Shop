@@ -27,6 +27,8 @@ function ResetPassword() {
       }
     } catch (error) {
       alert(error.response.data.message);
+      setNewPassword("");
+      setEmail("");
     }
   };
   window.addEventListener("resize", updateWindowWidth);
@@ -40,8 +42,9 @@ function ResetPassword() {
         ) : (
           <Nav></Nav>
         )}
-        <div>
-          <label className="input input-bordered flex items-center gap-2  mb-3">
+        <div className="flex flex-col items-center">
+          <p className="text-2xl underline mb-8">Reset Password</p>
+          <label className="input input-bordered flex items-center gap-2  mb-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -87,7 +90,7 @@ function ResetPassword() {
             value={oldPassword}
           />
         </label> */}
-          <label className="input input-bordered flex items-center gap-2  mb-3">
+          <label className="input input-bordered flex items-center gap-2  mb-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
