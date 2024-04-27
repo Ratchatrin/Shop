@@ -85,54 +85,113 @@ function Cart() {
           )}
         </>
       )}
-      {cart.map((product: wearType) => {
-        return (
-          <div>
-            <div className="w-fit flex justify-center items-center">
-              <img
-                src={product.image}
-                alt=""
-                className="rounded-lg w-24 h-24"
-              />
-              <div className="m-4 w-fit">
-                <p>{product.brand}</p>
-                <p className="text-wrap w-40">{product.productname}</p>
-                <p>Color : {product.color}</p>
-                <p>Size : {product.size}</p>
-                <p>$ {product.price * product.amount}</p>
-              </div>
-              <div className="text-center">
-                <button
-                  className="btn btn-success"
-                  onClick={() => {
-                    dispatch(userAddCart(product));
-                    addCart(product);
-                  }}
-                >
-                  +
-                </button>
-                <p> {product.amount}</p>
-                <button
-                  className="btn btn-error"
-                  onClick={() => {
-                    dispatch(userDelete(product));
-                    deleteCart(product);
-                  }}
-                >
-                  -
-                </button>
-              </div>
-            </div>
+      {windowWidth < 767 ? (
+        <>
+          <div
+            className="flex flex-col justify-end items-center
+       h-fit p-3"
+          >
+            <p className="text-2xl underline">Total Price : ${finalTotal}</p>
+            <button className="btn btn-success mt-5">Check Out</button>
           </div>
-        );
-      })}
-      <div
-        className="flex flex-col justify-end items-center
-       h-full p-3"
-      >
-        <p className="text-2xl">Total Price : ${finalTotal}</p>
-        <button className="btn btn-success mt-5">Check Out</button>
-      </div>
+          <div className="min-h-fit">
+            {cart.map((product: wearType) => {
+              return (
+                <>
+                  <div className="w-fit flex justify-center items-center">
+                    <img
+                      src={product.image}
+                      alt=""
+                      className="rounded-lg w-24 h-24"
+                    />
+                    <div className="m-4 w-fit">
+                      <p>{product.brand}</p>
+                      <p className="text-wrap w-40">{product.productname}</p>
+                      <p>Color : {product.color}</p>
+                      <p>Size : {product.size}</p>
+                      <p>$ {product.price * product.amount}</p>
+                    </div>
+                    <div className="text-center">
+                      <button
+                        className="btn btn-success"
+                        onClick={() => {
+                          dispatch(userAddCart(product));
+                          addCart(product);
+                        }}
+                      >
+                        +
+                      </button>
+                      <p> {product.amount}</p>
+                      <button
+                        className="btn btn-error"
+                        onClick={() => {
+                          dispatch(userDelete(product));
+                          deleteCart(product);
+                        }}
+                      >
+                        -
+                      </button>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        <>
+          <div
+            className="flex flex-col justify-end items-center
+       h-fit p-3"
+          >
+            <p className="text-4xl underline">Total Price : ${finalTotal}</p>
+            <button className="btn btn-success mt-5 text-xl">Check Out</button>
+          </div>
+          <div className="min-h-fit">
+            {cart.map((product: wearType) => {
+              return (
+                <>
+                  <div className="w-fit flex justify-center items-center text-2xl">
+                    <img
+                      src={product.image}
+                      alt=""
+                      className="rounded-lg w-60 h-60"
+                    />
+                    <div className="m-10 w-fit">
+                      <p>{product.brand}</p>
+                      <p className="text-wrap w-72">{product.productname}</p>
+                      <p>Color : {product.color}</p>
+                      <p>Size : {product.size}</p>
+                      <p>$ {product.price * product.amount}</p>
+                    </div>
+                    <div className="text-center">
+                      <button
+                        className="btn btn-success"
+                        onClick={() => {
+                          dispatch(userAddCart(product));
+                          addCart(product);
+                        }}
+                      >
+                        +
+                      </button>
+                      <p> {product.amount}</p>
+                      <button
+                        className="btn btn-error"
+                        onClick={() => {
+                          dispatch(userDelete(product));
+                          deleteCart(product);
+                        }}
+                      >
+                        -
+                      </button>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+          </div>
+        </>
+      )}
 
       <Footer></Footer>
     </>

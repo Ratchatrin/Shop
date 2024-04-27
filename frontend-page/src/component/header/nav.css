@@ -4,7 +4,7 @@
 .header {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: start;
   /* background-image: url(https://im.uniqlo.com/global-cms/spa/resba702f326ece6e072306fef710aba841fr.jpg);
   background-repeat: no-repeat;

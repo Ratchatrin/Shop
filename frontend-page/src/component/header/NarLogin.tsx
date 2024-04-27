@@ -21,7 +21,7 @@ function NavLogin() {
             alt=""
           />
         </Link>
-        <div className="navbar bg-base-100 flex justify-end">
+        <div className="navbar bg-base-100 flex justify-center">
           <div className="flex-none">
             <Link to="/cart">
               <div className="dropdown dropdown-end">
@@ -54,7 +54,6 @@ function NavLogin() {
                 </div>
               </div>
             </Link>
-
             <div className="navigator">
               <Link to="/home">home</Link>
               <Link to="/product/men">men</Link>
