@@ -4,8 +4,6 @@ interface UserData {
   cart: CartItem[]; 
 
 }
-
-
 interface CartItem {
   id: string;
   brand: string;
