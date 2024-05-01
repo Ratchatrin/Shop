@@ -10,7 +10,7 @@ interface wearType {
   description: string;
   color: string[];
   image: {
-    color: { [color: string]: string[] };
+    color: { [color: string]: string };
     common: string[];
   };
   size: { [size: string]: unknown };
@@ -32,7 +32,7 @@ function DetailKidsShirtXl({
   backBtn,
 }: {
   productId: string;
-  backBtn: React.FunctionComponent<unknown>;
+  backBtn: (back: string) => void;
 }) {
   const [detail, setDetail] = useState<wearType[]>([]);
   const [shirtSize, setShirtSize] = useState<string[]>([]);

@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./nav.css";
 import { Link } from "react-router-dom";
 import { userLogout } from "../redux/slicer";
@@ -11,6 +11,7 @@ interface state {
 }
 function NavShort() {
   const userData = useSelector((state: state) => state.user.userData);
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="header">
@@ -110,7 +111,11 @@ function NavShort() {
                         </div>
                       </div>
                     </li>
-                    <li onClick={userLogout()}>
+                    <li
+                      onClick={() => {
+                        dispatch(userLogout(null));
+                      }}
+                    >
                       <Link to="/home">Logout</Link>
                     </li>
                   </div>

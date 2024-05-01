@@ -148,7 +148,6 @@ app.put("/cart/delete/:userId", async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 });
-
 app.get("/product/men/shirt/detail/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -158,7 +157,6 @@ app.get("/product/men/shirt/detail/:id", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
 app.get("/product/men/pants/detail/:id", async (req, res) => {
   try {
     const { id } = req.params;

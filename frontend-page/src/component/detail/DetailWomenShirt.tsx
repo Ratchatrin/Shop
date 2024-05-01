@@ -10,7 +10,7 @@ interface wearType {
   description: string;
   color: string[];
   image: {
-    color: { [color: string]: string[] };
+    color: { [color: string]: string };
     common: string[];
   };
   size: { [size: string]: unknown };
@@ -32,7 +32,7 @@ function DetailWomenShirt({
   backBtn,
 }: {
   productId: string;
-  backBtn: React.FunctionComponent<unknown>;
+  backBtn: (back: string) => void;
 }) {
   const [detail, setDetail] = useState<wearType[]>([]);
   const [shirtSize, setShirtSize] = useState<string[]>([]);
@@ -58,7 +58,7 @@ function DetailWomenShirt({
         navigate("/login");
       } else {
         if (selectColor && selectSize.length !== 0) {
-          const select = detail.map((list: shirt) => {
+          const select = detail.map((list: wearType) => {
             return {
               id: list._id,
               brand: list.brand,
@@ -106,7 +106,7 @@ function DetailWomenShirt({
           >
             Back
           </button>
-          {detail.map((shirt: shirt) => {
+          {detail.map((shirt) => {
             return (
               <div className="p-2 flex flex-col items-center">
                 {selectColor === "" ? (

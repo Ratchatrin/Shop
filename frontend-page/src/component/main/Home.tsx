@@ -30,8 +30,6 @@ interface wearType {
 interface state {
   user: {
     userData: object;
-    error: boolean;
-    loading: boolean;
   };
 }
 interface userData {
@@ -49,7 +47,9 @@ function Home() {
   // const [kidsPants, setKidsPants] = useState<wearType[]>([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [cartData, setCartData] = useState<userData>();
-  const userData = useSelector((state: state) => state.user.userData);
+  const userData = useSelector(
+    (state: state) => state.user.userData as userData
+  );
   const getData = async () => {
     try {
       const data = (await axios.get("http://localhost:3001/home")).data;

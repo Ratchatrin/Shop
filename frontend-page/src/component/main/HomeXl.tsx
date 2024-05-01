@@ -23,20 +23,20 @@ interface wearType {
 }
 function HomeXl() {
   const [menShirt, setMenShirt] = useState<wearType[]>([]);
-  const [menPants, setMenPants] = useState<wearType[]>([]);
-  const [womenShirt, setWomenShirt] = useState<wearType[]>([]);
-  const [womenPants, setWomenPants] = useState<wearType[]>([]);
-  const [kidsShirt, setKidsShirt] = useState<wearType[]>([]);
-  const [kidsPants, setKidsPants] = useState<wearType[]>([]);
+  // const [menPants, setMenPants] = useState<wearType[]>([]);
+  // const [womenShirt, setWomenShirt] = useState<wearType[]>([]);
+  // const [womenPants, setWomenPants] = useState<wearType[]>([]);
+  // const [kidsShirt, setKidsShirt] = useState<wearType[]>([]);
+  // const [kidsPants, setKidsPants] = useState<wearType[]>([]);
   const getData = async () => {
     try {
       const data = (await axios.get("http://localhost:3001/home")).data;
       setMenShirt(data.menWear[0]);
-      setMenPants(data.menWear[1]);
-      setWomenShirt(data.womenWear[0]);
-      setWomenPants(data.womenWear[1]);
-      setKidsShirt(data.kidsWear[0]);
-      setKidsPants(data.kidsWear[1]);
+      // setMenPants(data.menWear[1]);
+      // setWomenShirt(data.womenWear[0]);
+      // setWomenPants(data.womenWear[1]);
+      // setKidsShirt(data.kidsWear[0]);
+      // setKidsPants(data.kidsWear[1]);
     } catch (error) {
       console.log(error);
     }

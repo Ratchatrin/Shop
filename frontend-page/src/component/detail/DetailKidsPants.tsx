@@ -10,7 +10,7 @@ interface wearType {
   description: string;
   color: string[];
   image: {
-    color: { [color: string]: string[] };
+    color: { [color: string]: string };
     common: string[];
   };
   size: { [size: string]: unknown };
@@ -32,7 +32,7 @@ function DetailKidsPants({
   backBtn,
 }: {
   productId: string;
-  backBtn: React.FunctionComponent<unknown>;
+  backBtn: (back: string) => void;
 }) {
   const [detail, setDetail] = useState<wearType[]>([]);
   const [pantsSize, setPantsSize] = useState<string[]>([]);
@@ -80,6 +80,7 @@ function DetailKidsPants({
             `http://localhost:3001/cart/add/${userData._id}`,
             select[0]
           );
+          console.log(add);
         } else {
           alert("Please Select Color or Size");
         }

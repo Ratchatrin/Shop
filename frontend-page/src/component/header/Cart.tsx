@@ -7,10 +7,9 @@ import { userAddCart, userDelete } from "../redux/slicer";
 import axios from "axios";
 import Footer from "../footer/Footer";
 import NavLogin from "./NarLogin";
-
 interface state {
   user: {
-    userData: { _id: string };
+    userData: { _id: string; cart: wearType[] };
     error: boolean;
     loading: boolean;
   };
@@ -53,7 +52,6 @@ function Cart() {
   const addCart = async (product: wearType) => {
     await axios.put(`http://localhost:3001/cart/add/${userData._id}`, product);
   };
-
   useEffect(() => {
     setCart(userData.cart);
   }, [userData]);

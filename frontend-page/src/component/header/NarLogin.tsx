@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./nav.css";
 import { Link } from "react-router-dom";
 import { userLogout } from "../redux/slicer";
@@ -11,6 +11,7 @@ interface state {
   };
 }
 function NavLogin() {
+  const dispatch = useDispatch();
   const userData = useSelector((state: state) => state.user.userData);
   return (
     <>
@@ -78,7 +79,12 @@ function NavLogin() {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link to="/home" onClick={userLogout()}>
+                  <Link
+                    to="/home"
+                    onClick={() => {
+                      dispatch(userLogout(null));
+                    }}
+                  >
                     Logout
                   </Link>
                 </li>

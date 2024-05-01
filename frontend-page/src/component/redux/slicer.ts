@@ -60,8 +60,9 @@ const userSlice = createSlice({
         }
       } 
     },
-    userLogout: (state) => {
-      state.userData = null;
+    userLogout: (state, action) => {
+      console.log(state)
+      state.userData = action.payload;
     },
   },
 });

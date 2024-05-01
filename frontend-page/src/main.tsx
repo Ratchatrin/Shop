@@ -5,13 +5,12 @@ import WomenWear from "./component/main/WomenWear.tsx";
 import KidsWear from "./component/main/KidsWear.tsx";
 import About from "./component/header/About.tsx";
 import Contact from "./component/header/Contact.tsx";
-import Detail from "./component/detail/DetailMenShirt.jsx";
 import Login from "./component/header/Login.tsx";
 import Signin from "./component/header/Signin.tsx";
 import Home from "./component/main/Home.tsx";
 import Welcome from "./component/header/Welcome.tsx";
 import { Provider } from "react-redux";
-import Store from "./component/redux/store.js";
+import store from "./component/redux/store";
 import Cart from "./component/header/Cart.tsx";
 import ResetPassword from "./component/header/ResetPassword.tsx";
 const router = createBrowserRouter([
@@ -34,10 +33,6 @@ const router = createBrowserRouter([
   {
     path: "/product/kids",
     element: <KidsWear></KidsWear>,
-  },
-  {
-    path: "/product/detail",
-    element: <Detail productId={undefined} backBtn={undefined}></Detail>,
   },
   {
     path: "/about",
@@ -65,7 +60,7 @@ const router = createBrowserRouter([
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <Provider store={Store}>
+  <Provider store={store}>
     <RouterProvider router={router}></RouterProvider>
   </Provider>
 );
