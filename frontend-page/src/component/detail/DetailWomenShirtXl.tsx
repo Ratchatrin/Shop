@@ -39,6 +39,7 @@ function DetailWomenShirtXl({
   const [selectColor, setSelectColor] = useState(String);
   const [amount, setAmount] = useState(1);
   const [selectSize, setSelectSize] = useState(String);
+  const [addComplete, setAddComplete] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state: state) => state.user.userData);
@@ -71,6 +72,10 @@ function DetailWomenShirtXl({
               amount: amount,
             };
           });
+          setAddComplete(true);
+          setTimeout(() => {
+            setAddComplete(false);
+          }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
             `http://localhost:3001/cart/add/${userData._id}`,
@@ -137,7 +142,6 @@ function DetailWomenShirtXl({
                     })}
                   </div>
                 )}
-
                 <p className="mt-2 text-3xl underline">{shirt.productname}</p>
                 <p className="mt-2 text-2xl w-96">{shirt.description}</p>
                 <p className="mt-2">${shirt.price}</p>
@@ -227,6 +231,31 @@ function DetailWomenShirtXl({
                 >
                   Add To Cart
                 </button>
+                {addComplete ? (
+                  <>
+                    <div
+                      role="alert"
+                      className="alert alert-success mt-10 max-w-5/12"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="stroke-current shrink-0 h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Your purchase has been confirmed!</span>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
               </div>
             );
           })}

@@ -66,7 +66,6 @@ function Home() {
   useEffect(() => {
     setCartData(userData);
   }, [userData]);
-  console.log(userData);
   const updateWindowWidth = () => {
     setWindowWidth(window.innerWidth);
   };

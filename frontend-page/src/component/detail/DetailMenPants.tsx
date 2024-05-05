@@ -108,7 +108,7 @@ function DetailMenPants({
   return (
     <>
       {pantsSize.length !== 0 ? (
-        <div>
+        <div className="flex flex-col">
           <button
             className="btn btn-active btn-neutral mt-5 ml-4"
             onClick={() => {
