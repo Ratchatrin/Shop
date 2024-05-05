@@ -38,7 +38,7 @@ function MenWearXl() {
     getData();
   }, []);
   return (
-    <div className="main">
+    <>
       <div className="container">
         {productId.length !== 0 ? (
           <>
@@ -60,16 +60,20 @@ function MenWearXl() {
           </>
         ) : (
           <>
-            <div className="text-center grid grid-cols-3 items-stretch item">
-              <div className="flex items-center justify-center bg-[url('https://im.uniqlo.com/global-cms/spa/res72658c23751af1cb313fb8ad02c69db9fr.jpg')] h-full bg-cover">
+            <div className="text-center grid grid-cols-3 item m-5">
+              <div className="flex rounded-3xl items-center justify-center bg-[url('https://im.uniqlo.com/global-cms/spa/res72658c23751af1cb313fb8ad02c69db9fr.jpg')] h-full bg-cover">
                 <p className=" font-bold underline text-3xl text-black">
                   Men T-Shirt
                 </p>
               </div>
               {menShirt.map((shirt: wearType) => {
                 return (
-                  <div className="flex flex-col m-5 justify-center items-center ">
-                    <img src={shirt.image.common[1]} alt="" />
+                  <div className="flex  flex-col m-5 justify-center items-center ">
+                    <img
+                      src={shirt.image.common[1]}
+                      alt=""
+                      className="rounded-3xl"
+                    />
                     <p className="font-bold">{shirt.productname}</p>
                     <p className="font-bold">Price : ${shirt.price}</p>
                     <button
@@ -85,17 +89,20 @@ function MenWearXl() {
                 );
               })}
             </div>
-            <div className="text-center grid grid-cols-3 items-center">
-              <div className="flex items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/471600/item/thgoods_08_471600.jpg?width=750')] h-full bg-cover">
+            <div className="text-center grid grid-cols-3  m-5">
+              <div className="flex rounded-3xl items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/471600/item/thgoods_08_471600.jpg?width=750')] h-full bg-cover">
                 <p className=" font-bold underline text-3xl text-black">
                   Men Pants
                 </p>
               </div>
-
               {menPants.map((pants: wearType) => {
                 return (
-                  <div className="flex flex-col m-5 justify-center items-center ">
-                    <img src={pants.image.common[1]} alt="" />
+                  <div className="flex  flex-col m-5 justify-center items-center ">
+                    <img
+                      src={pants.image.common[1]}
+                      alt=""
+                      className="rounded-3xl"
+                    />
                     <p className="font-bold">{pants.productname}</p>
                     <p className="font-bold">Price : ${pants.price}</p>
                     <button
@@ -114,7 +121,7 @@ function MenWearXl() {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 }
 

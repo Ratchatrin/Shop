@@ -64,8 +64,8 @@ function WomenWearXl() {
           </>
         ) : (
           <>
-            <div className="text-center grid grid-cols-3 items-center">
-              <div className="flex items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/465760/item/thgoods_61_465760.jpg?width=750')] h-full bg-cover">
+            <div className="text-center grid grid-cols-3 items-center m-5">
+              <div className="flex rounded-3xl items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/465760/item/thgoods_61_465760.jpg?width=750')] h-full bg-cover">
                 <p className=" font-bold underline text-3xl text-black">
                   Women T-Shirt
                 </p>
@@ -73,7 +73,11 @@ function WomenWearXl() {
               {womenShirt.map((shirt: wearType) => {
                 return (
                   <div className="flex flex-col m-5 justify-center items-center ">
-                    <img src={shirt.image.common[1]} alt="" />
+                    <img
+                      src={shirt.image.common[1]}
+                      alt=""
+                      className="rounded-3xl"
+                    />
                     <p className="font-bold">{shirt.productname}</p>
                     <p className="font-bold">Price : ${shirt.price}</p>
                     <button
@@ -89,8 +93,8 @@ function WomenWearXl() {
                 );
               })}
             </div>
-            <div className="text-center grid grid-cols-3 items-center">
-              <div className="flex items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/463182/item/thgoods_09_463182.jpg?width=750')] h-full bg-cover ">
+            <div className="text-center grid grid-cols-3 items-center m-5">
+              <div className="flex rounded-3xl items-center justify-center bg-[url('https://image.uniqlo.com/UQ/ST3/th/imagesgoods/463182/item/thgoods_09_463182.jpg?width=750')] h-full bg-cover ">
                 <p className=" font-bold underline text-3xl text-black">
                   Women Pants
                 </p>
@@ -99,7 +103,11 @@ function WomenWearXl() {
               {womenPants.map((pants: wearType) => {
                 return (
                   <div className="flex flex-col m-5 justify-center items-center ">
-                    <img src={pants.image.common[1]} alt="" />
+                    <img
+                      src={pants.image.common[1]}
+                      alt=""
+                      className="rounded-3xl"
+                    />
                     <p className="font-bold">{pants.productname}</p>
                     <p className="font-bold">Price : ${pants.price}</p>
                     <button

@@ -35,7 +35,7 @@ function DetailWomenPants({
   backBtn: (back: string) => void;
 }) {
   const [detail, setDetail] = useState<wearType[]>([]);
-  const [shirtSize, setShirtSize] = useState<string[]>([]);
+  const [pantsSize, setShirtSize] = useState<string[]>([]);
   const [selectColor, setSelectColor] = useState(String);
   const [amount, setAmount] = useState(1);
   const [selectSize, setSelectSize] = useState(String);
@@ -96,28 +96,28 @@ function DetailWomenPants({
   }, []);
   return (
     <>
-      {shirtSize.length !== 0 ? (
-        <div className="flex flex-col">
+      {pantsSize.length !== 0 ? (
+        <div className="flex flex-col justify-center items-center w-10/12 max-w-md">
           <button
-            className="btn btn-active btn-neutral mt-5 ml-4"
+            className="btn btn-active btn-neutral mt-5 ml-4 w-5/12"
             onClick={() => {
               backBtn("");
             }}
           >
             Back
           </button>
-          {detail.map((shirt) => {
+          {detail.map((pants) => {
             return (
               <div className="p-2 flex flex-col items-center">
                 {selectColor === "" ? (
                   <div className="grid grid-cols-2  grid-rows-2 w-fit">
-                    {shirt.image.common.map((image: string) => {
+                    {pants.image.common.map((image: string) => {
                       return (
                         <>
                           <img
                             src={image}
                             alt=""
-                            className="w-36 m-2 rounded-xl"
+                            className="w-44 m-2 rounded-xl"
                           />
                         </>
                       );
@@ -126,27 +126,34 @@ function DetailWomenPants({
                 ) : (
                   <div className="grid grid-cols-2 grid-rows-2 ">
                     <img
-                      src={shirt.image.color[selectColor]}
+                      src={pants.image.color[selectColor]}
                       alt=""
-                      className="w-36 m-2 rounded-xl "
+                      className="w-44 m-2 rounded-xl "
                     />
-                    {shirt.image.common.map((image: string) => {
+                    {pants.image.common.map((image: string) => {
                       return (
                         <>
                           <img
                             src={image}
                             alt=""
-                            className="w-36 m-2 rounded-xl"
+                            className="w-44 m-2 rounded-xl"
                           />
                         </>
                       );
                     })}
                   </div>
                 )}
-
-                <p className="mt-2 w-72 text-center">{shirt.productname}</p>
-                <p className="mt-2 w-64">{shirt.description}</p>
-                <p className="mt-2">${shirt.price}</p>
+                <div className="flex flex-col justify-center items-center">
+                  <p className="mt-2 text-2xl font-bold text-center text-balance">
+                    {pants.productname}
+                  </p>
+                  <p className="mt-2 w-11/12 text-balance text-center font-semibold text-xl">
+                    {pants.description}
+                  </p>
+                  <p className="mt-2 text-2xl font-bold">
+                    Price : ${pants.price}
+                  </p>
+                </div>
                 <select
                   className="select select-bordered w-full max-w-xs mt-2"
                   onChange={(ev) => {
@@ -156,7 +163,7 @@ function DetailWomenPants({
                   <option disabled selected>
                     Pick Color
                   </option>
-                  {shirt.color.map((color) => {
+                  {pants.color.map((color) => {
                     return (
                       <>
                         <option>{color}</option>
@@ -173,7 +180,7 @@ function DetailWomenPants({
                   <option disabled selected>
                     Pick Size
                   </option>
-                  {shirtSize.map((size) => {
+                  {pantsSize.map((size) => {
                     return (
                       <>
                         <option>{size}</option>
@@ -187,7 +194,7 @@ function DetailWomenPants({
                     Overview
                   </div>
                   <div className="collapse-content">
-                    {shirt.overview.map((data) => {
+                    {pants.overview.map((data) => {
                       return (
                         <>
                           <p>- {data}</p>
@@ -202,7 +209,7 @@ function DetailWomenPants({
                     Materials
                   </div>
                   <div className="collapse-content">
-                    <p> {shirt.materials.FABRICDETAILS}</p>
+                    <p> {pants.materials.FABRICDETAILS}</p>
                   </div>
                 </div>
                 <div className="flex justify-stretch items-center mt-2">
@@ -226,7 +233,9 @@ function DetailWomenPants({
                     -
                   </button>
                 </div>
-                <p className="mt-5">Total : ${amount * shirt.price}</p>
+                <p className="mt-3 font-bold">
+                  Total : ${amount * pants.price}
+                </p>
                 <button
                   className="btn btn-active btn-accent mt-2"
                   onClick={addCart}

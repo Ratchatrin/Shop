@@ -108,9 +108,9 @@ function DetailMenPants({
   return (
     <>
       {pantsSize.length !== 0 ? (
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center items-center w-10/12 max-w-md">
           <button
-            className="btn btn-active btn-neutral mt-5 ml-4"
+            className="btn btn-active btn-neutral mt-5 ml-4  w-5/12"
             onClick={() => {
               backBtn("");
             }}
@@ -154,10 +154,17 @@ function DetailMenPants({
                     })}
                   </div>
                 )}
-
-                <p className="mt-2">{pants.productname}</p>
-                <p className="mt-2 w-80">{pants.description}</p>
-                <p className="mt-2">${pants.price}</p>
+                <div className="flex flex-col justify-center items-center">
+                  <p className="mt-2 text-2xl font-bold text-center text-balance">
+                    {pants.productname}
+                  </p>
+                  <p className="mt-2 w-11/12 text-balance text-center font-semibold text-xl">
+                    {pants.description}
+                  </p>
+                  <p className="mt-2 text-2xl font-bold">
+                    Price : ${pants.price}
+                  </p>
+                </div>
                 <select
                   className="select select-bordered w-full max-w-xs mt-2"
                   onChange={(ev) => {
@@ -237,7 +244,9 @@ function DetailMenPants({
                     -
                   </button>
                 </div>
-                <p>Total : {amount * pants.price}</p>
+                <p className="mt-3 font-bold">
+                  Total : ${amount * pants.price}
+                </p>
                 <button
                   className="btn btn-active btn-accent mt-2"
                   onClick={addCart}
