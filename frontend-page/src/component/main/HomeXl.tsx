@@ -367,9 +367,7 @@ function HomeXl() {
                 <div className="w-full">
                   <h1 className="text-6xl font-bold text-gray-50 ">
                     Welcome To The Brand Shop
-                    <h3></h3>
                   </h1>
-                  <p className="py-6"></p>
                 </div>
               </div>
             </div>

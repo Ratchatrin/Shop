@@ -124,7 +124,11 @@ function WomenWear() {
                         key={shirt._id}
                         className="flex flex-col m-5 justify-center items-center "
                       >
-                        <img src={shirt.image.common[1]} alt="" />
+                        <img
+                          src={shirt.image.common[1]}
+                          alt=""
+                          className="rounded-2xl"
+                        />
                         <p className="font-bold">{shirt.productname}</p>
                         <p className="font-bold">Price : ${shirt.price}</p>
                         <button
@@ -147,7 +151,11 @@ function WomenWear() {
                   {womenPants.map((shirt: wearType) => {
                     return (
                       <div className="flex flex-col m-5 justify-center items-center ">
-                        <img src={shirt.image.common[1]} alt="" />
+                        <img
+                          src={shirt.image.common[1]}
+                          alt=""
+                          className="rounded-2xl"
+                        />
                         <p className="font-bold">{shirt.productname}</p>
                         <p className="font-bold">Price : ${shirt.price}</p>
                         <button

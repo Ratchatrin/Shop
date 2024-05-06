@@ -117,11 +117,14 @@ function KidsWear() {
                   <p className=" font-bold underline text-3xl text-black">
                     Kids T-Shirt
                   </p>
-
                   {kidsShirt.map((shirt: wearType) => {
                     return (
                       <div className="flex flex-col m-5 justify-center items-center ">
-                        <img src={shirt.image.common[1]} alt="" />
+                        <img
+                          src={shirt.image.common[1]}
+                          alt=""
+                          className="rounded-2xl"
+                        />
                         <p className="font-bold">{shirt.productname}</p>
                         <p className="font-bold">Price : ${shirt.price}</p>
                         <button
@@ -144,7 +147,11 @@ function KidsWear() {
                   {kidsPants.map((pants: wearType) => {
                     return (
                       <div className="flex flex-col m-5 justify-center items-center ">
-                        <img src={pants.image.common[1]} alt="" />
+                        <img
+                          src={pants.image.common[1]}
+                          alt=""
+                          className="rounded-2xl"
+                        />
                         <p className="font-bold">{pants.productname}</p>
                         <p className="font-bold">Price : ${pants.price}</p>
                         <button

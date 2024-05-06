@@ -5,14 +5,35 @@ import { userLogout } from "../redux/slicer";
 import "./nav.css";
 interface state {
   user: {
-    userData: { cart: string };
+    userData: { cart: wearType[] };
     error: boolean;
     loading: boolean;
   };
 }
+interface wearType {
+  id: string;
+  brand: string;
+  productname: string;
+  description: string;
+  color: string;
+  image: string;
+  size: string;
+  overview: string[];
+  materials: {
+    FABRICDETAILS: string;
+  };
+  price: number;
+  amount: number;
+}
 function NavLogin() {
   const dispatch = useDispatch();
   const userData = useSelector((state: state) => state.user.userData);
+  const amount = userData.cart.map((data) => {
+    return data.amount;
+  });
+  const totalAmount = amount.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
   return (
     <>
       <div className="header">
@@ -48,7 +69,7 @@ function NavLogin() {
                     </svg>
                     <Link to="/cart">
                       <span className="badge badge-sm indicator-item">
-                        {userData ? <>{userData.cart.length}</> : <></>}
+                        {userData ? <>{totalAmount}</> : <></>}
                       </span>
                     </Link>
                   </div>

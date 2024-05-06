@@ -139,7 +139,6 @@ app.put("/cart/delete/:userId", async (req, res) => {
         });
       }
     }
-    console.log("Item deleted from cart successfully");
     return res
       .status(200)
       .json({ message: "Item deleted from cart successfully" });
