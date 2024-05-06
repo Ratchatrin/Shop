@@ -3,6 +3,7 @@ import "./nav.css";
 import { Link } from "react-router-dom";
 import { userLogout } from "../redux/slicer";
 import "./nav.css";
+import { useEffect, useState } from "react";
 interface state {
   user: {
     userData: { cart: wearType[] };
@@ -27,13 +28,19 @@ interface wearType {
 }
 function NavLogin() {
   const dispatch = useDispatch();
+  const [total, setTotal] = useState(0);
   const userData = useSelector((state: state) => state.user.userData);
-  const amount = userData.cart.map((data) => {
-    return data.amount;
-  });
-  const totalAmount = amount.reduce((acc, cur) => {
-    return acc + cur;
-  }, 0);
+  useEffect(() => {
+    if (userData) {
+      const amount = userData.cart.map((data) => {
+        return data.amount;
+      });
+      const totalAmount = amount.reduce((acc, cur) => {
+        return acc + cur;
+      }, 0);
+      setTotal(totalAmount);
+    }
+  }, [userData]);
   return (
     <>
       <div className="header">
@@ -69,7 +76,13 @@ function NavLogin() {
                     </svg>
                     <Link to="/cart">
                       <span className="badge badge-sm indicator-item">
-                        {userData ? <>{totalAmount}</> : <></>}
+                        {userData ? (
+                          <>
+                            <p>{total}</p>
+                          </>
+                        ) : (
+                          <></>
+                        )}
                       </span>
                     </Link>
                   </div>

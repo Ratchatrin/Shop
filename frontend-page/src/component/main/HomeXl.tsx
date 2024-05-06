@@ -360,14 +360,20 @@ function HomeXl() {
               </Link>
             </div> */}
             <div
-              className="hero min-h-screen bg-base-200 bg-[url('https://im.uniqlo.com/global-cms/spa/resba702f326ece6e072306fef710aba841fr.jpg')] h-1/5 w-full bg-top bg-cover
+              className="hero min-h-screen bg-base-200 bg-[url('https://im.uniqlo.com/global-cms/spa/res468423fb5128de816b7e0023c9730356fr.jpg')] h-1/5 w-full bg-top bg-cover
                  bg-no-repeat"
             >
-              <div className="hero-content text-center ">
+              <div className="hero-content flex items-center justify-center bg-slate-100 w-11/12 rounded-xl max-w-fit">
                 <div className="w-full">
-                  <h1 className="text-6xl font-bold text-gray-50 ">
+                  <h1 className="text-3xl font-bold text-gray-800 mr-10">
                     Welcome To The Brand Shop
                   </h1>
+                  <p className="font-bold">New Men-Collection</p>
+                  <Link to="/product/men">
+                    <button className="btn btn-active btn-neutral mt-3">
+                      View More
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
