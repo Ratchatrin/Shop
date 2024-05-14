@@ -5,7 +5,7 @@ function Welcome() {
     <div className="welcome">
       <Link to="/home">
         <h1>Welcome To My Website</h1>
-        <h2>Go to Shop web Site</h2>
+        <h2>Go to The Brand Shop :)</h2>
       </Link>
     </div>
   );
