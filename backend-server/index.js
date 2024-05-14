@@ -222,7 +222,6 @@ app.get("/product/women", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
 mongoose
   .connect(
     "mongodb+srv://ratchatrin12:QpACmHJUWMCJBLIl@cluster0.cayleoy.mongodb.net/product?retryWrites=true&w=majority&appName=Cluster0"

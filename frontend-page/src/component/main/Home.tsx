@@ -52,7 +52,8 @@ function Home() {
   );
   const getData = async () => {
     try {
-      const data = (await axios.get("http://localhost:3001/home")).data;
+      const data = (await axios.get("https://shop-pdxc.onrender.com/home"))
+        .data;
       setMenShirt(data.menWear[0]);
       // setMenPants(data.menWear[1]);
       // setWomenShirt(data.womenWear[0]);
