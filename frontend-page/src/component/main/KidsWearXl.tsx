@@ -26,7 +26,7 @@ function KidsWearXl() {
   const [productId, setProductId] = useState(String);
   const [selectWear, setSelectWear] = useState(String);
   const getData = async () => {
-    const data = await axios.get("http://localhost:3001/product/kids");
+    const data = await axios.get("https://shop-pdxc.onrender.com/product/kids");
     setKidsShirt(data.data[0]);
     setKidsPants(data.data[1]);
   };

@@ -24,7 +24,10 @@ function Signin() {
           username,
           password,
         };
-        const addUser = await axios.post("http://localhost:3001/signin", user);
+        const addUser = await axios.post(
+          "https://shop-pdxc.onrender.com/signin",
+          user
+        );
         console.log(addUser.data);
         setEmail("");
         setUsername("");

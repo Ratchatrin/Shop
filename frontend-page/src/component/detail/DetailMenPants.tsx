@@ -52,7 +52,7 @@ function DetailMenPants({
   const [addComplete, setAddComplete] = useState(false);
   const getData = async () => {
     const data = await axios.get(
-      `http://localhost:3001/product/men/pants/detail/${productId}`
+      `https://shop-pdxc.onrender.com/product/men/pants/detail/${productId}`
     );
     setDetail([data.data]);
     setPantsSize(Object.keys(data.data.size));
@@ -85,7 +85,7 @@ function DetailMenPants({
           }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
-            `http://localhost:3001/cart/add/${userData._id}`,
+            `https://shop-pdxc.onrender.com/cart/add/${userData._id}`,
             select[0]
           );
           if (add) {

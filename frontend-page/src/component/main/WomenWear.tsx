@@ -45,7 +45,9 @@ function WomenWear() {
     setCartData(userData);
   }, [userData]);
   const getData = async () => {
-    const data = await axios.get("http://localhost:3001/product/women");
+    const data = await axios.get(
+      "https://shop-pdxc.onrender.com/product/women"
+    );
     setWomenShirt(data.data[0]);
     setWomenPants(data.data[1]);
   };

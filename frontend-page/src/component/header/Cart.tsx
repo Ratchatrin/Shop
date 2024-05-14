@@ -53,12 +53,15 @@ function Cart() {
 
   const deleteCart = async (product: wearType) => {
     await axios.put(
-      `http://localhost:3001/cart/delete/${userData._id}`,
+      `https://shop-pdxc.onrender.com/cart/delete/${userData._id}`,
       product
     );
   };
   const addCart = async (product: wearType) => {
-    await axios.put(`http://localhost:3001/cart/add/${userData._id}`, product);
+    await axios.put(
+      `https://shop-pdxc.onrender.com/cart/add/${userData._id}`,
+      product
+    );
   };
   useEffect(() => {
     setCart(userData.cart);

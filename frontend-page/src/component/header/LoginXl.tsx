@@ -24,7 +24,10 @@ function LoginXl() {
           username,
           password,
         };
-        const login = await axios.post("http://localhost:3001/login", user);
+        const login = await axios.post(
+          "https://shop-pdxc.onrender.com/login",
+          user
+        );
         dispatch(loginUser(login.data));
         setUsername("");
         SetPassword("");

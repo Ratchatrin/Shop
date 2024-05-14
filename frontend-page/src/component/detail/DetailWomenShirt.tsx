@@ -46,7 +46,7 @@ function DetailWomenShirt({
   const getData = async () => {
     setShirtSize([]);
     const data = await axios.get(
-      `http://localhost:3001/product/women/shirt/detail/${productId}`
+      `https://shop-pdxc.onrender.com/product/women/shirt/detail/${productId}`
     );
     setDetail([data.data]);
     setShirtSize(Object.keys(data.data.size));
@@ -79,7 +79,7 @@ function DetailWomenShirt({
           }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
-            `http://localhost:3001/cart/add/${userData._id}`,
+            `https://shop-pdxc.onrender.com/cart/add/${userData._id}`,
             select[0]
           );
           console.log(add.data);

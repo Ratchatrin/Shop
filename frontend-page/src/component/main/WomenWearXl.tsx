@@ -27,7 +27,9 @@ function WomenWearXl() {
   const [productId, setProductId] = useState(String);
   const [selectWear, setSelectWear] = useState(String);
   const getData = async () => {
-    const data = await axios.get("http://localhost:3001/product/women");
+    const data = await axios.get(
+      "https://shop-pdxc.onrender.com/product/women"
+    );
     setWomenShirt(data.data[0]);
     setWomenPants(data.data[1]);
   };

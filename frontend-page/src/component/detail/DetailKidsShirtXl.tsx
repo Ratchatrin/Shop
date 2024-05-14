@@ -46,7 +46,7 @@ function DetailKidsShirtXl({
 
   const getData = async () => {
     const data = await axios.get(
-      `http://localhost:3001/product/kids/shirt/detail/${productId}`
+      `https://shop-pdxc.onrender.com/product/kids/shirt/detail/${productId}`
     );
     setDetail([data.data]);
     setShirtSize(Object.keys(data.data.size));
@@ -78,7 +78,7 @@ function DetailKidsShirtXl({
           }, 1500);
           dispatch(userAddCart(select[0]));
           const add = await axios.put(
-            `http://localhost:3001/cart/add/${userData._id}`,
+            `https://shop-pdxc.onrender.com/cart/add/${userData._id}`,
             select[0]
           );
           console.log(add.data);
