@@ -20,7 +20,7 @@ function ResetPassword() {
     try {
       const user = { email, newPassword };
       const changePassword = await axios.put(
-        "http://localhost:3001/resetpassword",
+        "https://shop-pdxc.onrender.com/resetpassword",
         user
       );
       console.log(changePassword.status);
