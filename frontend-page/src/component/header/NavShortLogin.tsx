@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { userLogout } from "../redux/slicer";
 interface state {
   user: {
-    userData: { cart: string };
+    userData: { cart: string; username: string };
     error: boolean;
     loading: boolean;
   };
@@ -103,22 +103,31 @@ function NavShort() {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-300 rounded-box w-52"
                 >
-                  <div>
+                  <div className="flex  items-center">
                     <li>
                       <div className="avatar ">
                         <div className="w-16 rounded-full">
-                          <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                          <img src="https://www.pngitem.com/pimgs/m/74-741993_customer-icon-png-customer-icon-transparent-png.png" />
                         </div>
                       </div>
                     </li>
-                    <li
-                      onClick={() => {
-                        dispatch(userLogout(null));
-                      }}
-                    >
-                      <Link to="/home">Logout</Link>
+                    <li>
+                      {userData ? (
+                        <>
+                          <p>{userData.username}</p>
+                        </>
+                      ) : (
+                        <></>
+                      )}
                     </li>
                   </div>
+                  <li
+                    onClick={() => {
+                      dispatch(userLogout(null));
+                    }}
+                  >
+                    <Link to="/home">Logout</Link>
+                  </li>
                   <li>
                     <Link to="/home">home</Link>
                   </li>

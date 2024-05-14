@@ -6,7 +6,7 @@ import "./nav.css";
 import { useEffect, useState } from "react";
 interface state {
   user: {
-    userData: { cart: wearType[] };
+    userData: { cart: wearType[]; username: string };
     error: boolean;
     loading: boolean;
   };
@@ -95,34 +95,43 @@ function NavLogin() {
               <Link to="/product/women">women</Link>
               <Link to="/product/kids">kids</Link>
             </div>
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  />
+            <div className=" flex flex-col justify-center items-center ml-5">
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src="https://www.pngitem.com/pimgs/m/74-741993_customer-icon-png-customer-icon-transparent-png.png"
+                    />
+                  </div>
                 </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link
+                      to="/home"
+                      onClick={() => {
+                        dispatch(userLogout(null));
+                      }}
+                    >
+                      Logout
+                    </Link>
+                  </li>
+                </ul>
               </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <Link
-                    to="/home"
-                    onClick={() => {
-                      dispatch(userLogout(null));
-                    }}
-                  >
-                    Logout
-                  </Link>
-                </li>
-              </ul>
+              {userData ? (
+                <>
+                  <p className="text-lg font-semibold">{userData.username}</p>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>

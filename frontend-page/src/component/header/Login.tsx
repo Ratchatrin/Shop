@@ -12,6 +12,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, SetPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [alertWrong, setAlertWrong] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const updateWindowWidth = () => {
@@ -34,14 +35,19 @@ function Login() {
         SetPassword("");
         navigate("/home");
       } else {
-        alert("Please fill in the blank");
+        setAlertWrong(true);
+        setTimeout(() => {
+          setAlertWrong(false);
+        }, 1500);
       }
     } catch (error) {
       console.log(error);
-      alert("Username or Password is Incorrect");
+      setAlertWrong(true);
+      setTimeout(() => {
+        setAlertWrong(false);
+      }, 1500);
     }
   };
-
   return (
     <>
       <div className="container">
@@ -182,6 +188,28 @@ function Login() {
             </div>
           </div>
         </>
+        {alertWrong ? (
+          <>
+            <div role="alert" className="alert alert-error w-3/6 mt-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <span>Username or Password is Incorrect.</span>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
       <Footer></Footer>
     </>
