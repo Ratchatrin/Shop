@@ -123,7 +123,7 @@ function DetailWomenShirtXl({
                     })}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-4 grid-rows-2 ">
+                  <div className="grid grid-cols-4 ">
                     <img
                       src={shirt.image.color[selectColor]}
                       alt=""
