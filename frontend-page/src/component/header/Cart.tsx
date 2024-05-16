@@ -94,7 +94,7 @@ function Cart() {
           )}
         </>
       )}
-      {windowWidth < 767 ? (
+      {windowWidth < 1024 ? (
         <>
           {cart.length === 0 ? (
             <>
@@ -120,16 +120,16 @@ function Cart() {
                 </p>
               </div>
               <div className="flex flex-col items-center justify-between h-full ">
-                <div className="flex justify-start items-start">
-                  <div className=" flex flex-col h-full justify-start items-start">
+                <div className="flex flex-col justify-start items-center">
+                  <div className=" flex flex-col h-full justify-start items-center">
                     {cart.map((product: wearType) => {
                       return (
                         <>
-                          <div className="w-11/12 flex justify-between items-center text-xl mb-7 border-b-2 border-b-gray-300 p-5 ">
+                          <div className="w-11/12 flex justify-between items-center text-xl mb-7 border-b-2 border-b-gray-300">
                             <img
                               src={product.image}
                               alt=""
-                              className="rounded-lg w-4/12 h-4/12 max-w-md max-h-md  mr-8"
+                              className="rounded-lg w-4/12 h-4/12 max-w-md max-h-md  mr-3"
                             />
                             <div className="w-full">
                               <p className="font-bold uppercase mb-2">
@@ -186,6 +186,11 @@ function Cart() {
                     <button className="btn btn-success mt-5 text-xl">
                       Check Out
                     </button>
+                    <Link to="/home">
+                      <button className="btn btn-active btn-neutral mt-5 text-lg w-full h-full ">
+                        Continue Shopping
+                      </button>
+                    </Link>
                   </div>
                 </div>
                 <Footer></Footer>

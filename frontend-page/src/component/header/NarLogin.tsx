@@ -95,7 +95,7 @@ function NavLogin() {
               <Link to="/product/women">women</Link>
               <Link to="/product/kids">kids</Link>
             </div>
-            <div className=" flex flex-col justify-center items-center ml-5">
+            <div className=" flex flex-col justify-center items-center ml-2">
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
