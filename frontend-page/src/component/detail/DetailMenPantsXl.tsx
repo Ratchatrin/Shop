@@ -128,7 +128,7 @@ function DetailMenPantsXl({
                     })}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-2 gap-5 w-fit ">
+                  <div className="grid grid-cols-4 gap-5 w-fit ">
                     <img
                       src={pants.image.color[selectColor]}
                       alt=""
