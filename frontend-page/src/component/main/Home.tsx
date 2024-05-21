@@ -258,7 +258,11 @@ function Home() {
                 </div>
               </>
             ) : (
-              <></>
+              <>
+                <div className="h-screen flex">
+                  <span className="loading loading-bars loading-lg"></span>
+                </div>
+              </>
             )}
           </div>
           <Footer></Footer>
