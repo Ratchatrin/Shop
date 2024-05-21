@@ -411,8 +411,9 @@ function HomeXl() {
           </>
         ) : (
           <>
-            <div className="h-screen flex">
+            <div className="h-screen flex flex-col justify-center items-center">
               <span className="loading loading-bars loading-lg"></span>
+              <p className="mt-5 font-bold text-2xl">Loading Data</p>
             </div>
           </>
         )}
