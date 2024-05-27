@@ -52,42 +52,6 @@ function NavShort() {
                     </Link>
                   </div>
                 </div>
-                {/* <div
-                  tabIndex={0}
-                  className="mt-2 z-[1] card card-compact dropdown-content w-fit bg-base-100 shadow"
-                >
-                  <div className="card-body">
-                    {userData ? (
-                      <>
-                        {userData.cart.map((product) => {
-                          return (
-                            <div className="grid grid-cols-2">
-                              <img
-                                src={product.image}
-                                alt=""
-                                className="w-10 h-10"
-                              />
-                              <p>Name : {product.productname}</p>
-                              <p>Color : {product.color}</p>
-                              <p>Price : ${product.price}</p>
-                              <p>Amount : {product.amount}</p>
-                              <button className="btn btn-error text-xs p-2">
-                                delete
-                              </button>
-                            </div>
-                          );
-                        })}
-                      </>
-                    ) : (
-                      <></>
-                    )}
-                    <div className="card-actions">
-                      <button className="btn btn-primary btn-block">
-                        View cart
-                      </button>
-                    </div>
-                  </div>
-                </div> */}
               </div>
               <div className="dropdown dropdown-end">
                 <div
