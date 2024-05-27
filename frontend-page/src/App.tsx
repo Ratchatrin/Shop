@@ -4,8 +4,6 @@ import Home from "./component/main/Home.tsx";
 import MenWear from "./component/main/MenWear.tsx";
 import WomenWear from "./component/main/WomenWear.tsx";
 import KidsWear from "./component/main/KidsWear.tsx";
-import About from "./component/header/About.tsx";
-import Contact from "./component/header/Contact.tsx";
 import Login from "./component/header/Login.tsx";
 import Signin from "./component/header/Signin.tsx";
 
@@ -23,8 +21,6 @@ function App() {
       <NavShort></NavShort>
       <WomenWear></WomenWear>
       <KidsWear></KidsWear>
-      <About></About>
-      <Contact></Contact>
       <Login></Login>
       <Signin></Signin>
     </>
