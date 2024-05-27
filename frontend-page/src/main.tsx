@@ -3,8 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MenWear from "./component/main/MenWear.tsx";
 import WomenWear from "./component/main/WomenWear.tsx";
 import KidsWear from "./component/main/KidsWear.tsx";
-import About from "./component/header/About.tsx";
-import Contact from "./component/header/Contact.tsx";
 import Login from "./component/header/Login.tsx";
 import Signin from "./component/header/Signin.tsx";
 import Home from "./component/main/Home.tsx";
@@ -33,14 +31,6 @@ const router = createBrowserRouter([
   {
     path: "/product/kids",
     element: <KidsWear></KidsWear>,
-  },
-  {
-    path: "/about",
-    element: <About></About>,
-  },
-  {
-    path: "/contact",
-    element: <Contact></Contact>,
   },
   {
     path: "/login",
