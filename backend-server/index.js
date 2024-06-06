@@ -105,7 +105,7 @@ app.put("/cart/add/:userId", async (req, res) => {
       const userUpdate = await User.findByIdAndUpdate(userId, {
         $set: {
           [`cart.${indexProduct}.amount`]:
-            userFilter.cart[indexProduct].amount + 1,
+            userFilter.cart[indexProduct].amount + req.body.amount,
         },
       });
     }

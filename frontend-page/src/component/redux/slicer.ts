@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 interface UserData {
   _id: string;
   cart: CartItem[]; 
-
 }
 interface CartItem {
   id: string;
@@ -18,7 +17,6 @@ interface CartItem {
   price: number;
   amount: number;
 }
-
 const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -39,7 +37,7 @@ const userSlice = createSlice({
           item.id === newItem.id
       );
       if (existingItemIndex !== -1) {
-        state.userData!.cart[existingItemIndex].amount += 1;
+        state.userData!.cart[existingItemIndex].amount = newItem.amount + state.userData!.cart[existingItemIndex].amount;
       } else {
         state.userData!.cart = [...state.userData!.cart, newItem];
       }
@@ -61,7 +59,6 @@ const userSlice = createSlice({
       } 
     },
     userLogout: (state, action) => {
-      console.log(state)
       state.userData = action.payload;
     },
   },
