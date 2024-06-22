@@ -43,6 +43,7 @@ function DetailWomenPantsXl({
   const navigate = useNavigate();
   const userData = useSelector((state: state) => state.user.userData);
   const [addComplete, setAddComplete] = useState(false);
+  const [error, setError] = useState(false);
   const getData = async () => {
     const data = await axios.get(
       `https://shop-pdxc.onrender.com/product/women/pants/detail/${productId}`
@@ -82,7 +83,10 @@ function DetailWomenPantsXl({
           );
           console.log(add.data);
         } else {
-          alert("Please Select Color or Size");
+          setError(true);
+          setTimeout(() => {
+            setError(false);
+          }, 1500);
         }
       }
     } catch (error) {
@@ -250,6 +254,31 @@ function DetailWomenPantsXl({
                         />
                       </svg>
                       <span>Your purchase has been confirmed!</span>
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+                {error ? (
+                  <>
+                    <div
+                      role="alert"
+                      className="alert alert-error mt-10 text-center border-none max-w-lg"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="stroke-current shrink-0 h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>Please select size and color</span>
                     </div>
                   </>
                 ) : (
