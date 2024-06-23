@@ -195,7 +195,7 @@ function DetailMenPantsXl({
                   <div className="collapse-title text-xl font-medium">
                     Overview
                   </div>
-                  <div className="collapse-content">
+                  <div className="collapse-content text-left">
                     {pants.overview.map((data) => {
                       return (
                         <>
@@ -210,7 +210,7 @@ function DetailMenPantsXl({
                   <div className="collapse-title text-xl font-medium">
                     Materials
                   </div>
-                  <div className="collapse-content">
+                  <div className="collapse-content text-left">
                     <p> {pants.materials.FABRICDETAILS}</p>
                   </div>
                 </div>

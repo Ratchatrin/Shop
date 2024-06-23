@@ -195,7 +195,7 @@ function DetailKidsPants({
                   <div className="collapse-title text-xl font-medium">
                     Overview
                   </div>
-                  <div className="collapse-content">
+                  <div className="collapse-content text-left">
                     {pants.overview.map((data) => {
                       return (
                         <>
